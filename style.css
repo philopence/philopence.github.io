@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap');
+
+html, body {
+  font-family: 'ZCOOL XiaoWei', serif;
+}
+
+.container {
+  margin: 0 auto;
+  border-right: none;
+}
