@@ -46,7 +46,7 @@ paginate = 5
 [languages]
   [languages.en]
     languageName = "English"
-    title = "Terminal"
+    title = "Philopence's Blogs"
     subtitle = "A simple, retro theme for Hugo"
     owner = ""
     keywords = ""
@@ -60,7 +60,7 @@ paginate = 5
     missingBackButtonLabel = "Back to home page"
 
     [languages.en.params.logo]
-      logoText = "Terminal"
+      logoText = "Happy Hacking"
       logoHomeLink = "/"
 
     [languages.en.menu]
