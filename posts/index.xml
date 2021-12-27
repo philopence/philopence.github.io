@@ -63,7 +63,7 @@ git submodule update --remote
 4. table 合并单元格：rowspan, colspan 合并边框：border-collapse 表格标题标签：caption 表格结构化标签：thead tbody tfoot 5. form 自身的属性：
 action: 处理当前表单的URL enctype: 加密类型 method: 提交表单的HTTP方法 表单相关的标签有：
 input: type的各种值，radio必须name相同生效，file可以添加multiple多选，submit等按钮需要在form中生效 textarea: 常用rows和cols属性限定范围，CSS的resize: none;禁止缩放 select(name)&amp;gt;option(value): 默认选中为selected而非checked，name在select上，value在option上 label: 两种用法：嵌套和for id，后者更灵活，避免嵌套 相关属性：
-name value: name作为上传数据的key，value为key对应的值 placeholder: 可以用CSS的::placeholder伪元素定义样式</description><content>&lt;h2 id="理解">理解&lt;/h2>
+name value: name作为上传数据的key，value为key对应的值 placeholder: 可以用CSS的::placeholder伪元素定义样式 6. 布局（容器） 无语义容器标签：div span 语义化容器标签：header footer article section aside nav 等等，常用语移动端（兼容性好）</description><content>&lt;h2 id="理解">理解&lt;/h2>
 &lt;p>超文本标记语言，作为“结构”存在。其作用为语义化页面内容&lt;/p>
 &lt;p>默认的呈现样式由浏览器添加，为了保证页面的可读性，不需要理会，实际开发时会进行重置（不带任何样式）&lt;/p>
 &lt;p>标签和属性都由对应功能的英文单词缩写而来，可做了解，加深理解和记忆&lt;/p>
@@ -107,4 +107,9 @@ name value: name作为上传数据的key，value为key对应的值 placeholder: 
 &lt;ul>
 &lt;li>&lt;code>name&lt;/code> &lt;code>value&lt;/code>: &lt;code>name&lt;/code>作为上传数据的key，&lt;code>value&lt;/code>为key对应的值&lt;/li>
 &lt;li>&lt;code>placeholder&lt;/code>: 可以用CSS的&lt;code>::placeholder&lt;/code>伪元素定义样式&lt;/li>
-&lt;/ul></content></item></channel></rss>
+&lt;/ul>
+&lt;h3 id="6-布局容器">6. 布局（容器）&lt;/h3>
+&lt;p>无语义容器标签：&lt;code>div&lt;/code> &lt;code>span&lt;/code>
+语义化容器标签：&lt;code>header&lt;/code> &lt;code>footer&lt;/code> &lt;code>article&lt;/code> &lt;code>section&lt;/code> &lt;code>aside&lt;/code> &lt;code>nav&lt;/code> 等等，常用语移动端（兼容性好）&lt;/p>
+&lt;h3 id="7-字符实体">7. 字符实体&lt;/h3>
+&lt;p>在页面中直接显示特殊字符，需要转化为字符实体，否则会被浏览器处理或解析。格式为&lt;code>&amp;amp;FOO;&lt;/code>，如空格为&lt;code>&amp;amp;nbsp;&lt;/code>&lt;/p></content></item></channel></rss>
