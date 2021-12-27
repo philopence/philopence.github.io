@@ -109,7 +109,7 @@ hugo server <span style=color:#75715e># 开启服务预览博客，访问：loca
 
       - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Deploy</span>
         <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>peaceiris/actions-gh-pages@v3</span>
-        <span style=color:#f92672>if</span>: <span style=color:#ae81ff>github.ref == &#39;refs/heads/main&#39;</span>
+        <span style=color:#75715e># if: github.ref == &#39;refs/heads/main&#39;</span>
         <span style=color:#f92672>with</span>:
           <span style=color:#f92672>github_token</span>: <span style=color:#ae81ff>${{ secrets.GITHUB_TOKEN }}</span>
           <span style=color:#f92672>publish_dir</span>: <span style=color:#ae81ff>./public</span>

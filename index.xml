@@ -34,7 +34,7 @@ hugo server &lt;span style="color:#75715e"># 开启服务预览博客，访问�
 &lt;span style="color:#f92672">run&lt;/span>: &lt;span style="color:#ae81ff">hugo --minify&lt;/span>
 - &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Deploy&lt;/span>
 &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">peaceiris/actions-gh-pages@v3&lt;/span>
-&lt;span style="color:#f92672">if&lt;/span>: &lt;span style="color:#ae81ff">github.ref == &amp;#39;refs/heads/main&amp;#39;&lt;/span>
+&lt;span style="color:#75715e"># if: github.ref == &amp;#39;refs/heads/main&amp;#39;&lt;/span>
 &lt;span style="color:#f92672">with&lt;/span>:
 &lt;span style="color:#f92672">github_token&lt;/span>: &lt;span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}&lt;/span>
 &lt;span style="color:#f92672">publish_dir&lt;/span>: &lt;span style="color:#ae81ff">./public&lt;/span>
