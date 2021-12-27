@@ -6,7 +6,7 @@ authorTwitter = "" #do not include @
 cover = ""
 tags = ["", ""]
 keywords = ["", ""]
-description = ""
+description = "一些HTML的理解和注意点"
 showFullContent = false
 +++
 

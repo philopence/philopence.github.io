@@ -6,7 +6,7 @@ authorTwitter = "" #do not include @
 cover = ""
 tags = ["", ""]
 keywords = ["", ""]
-description = ""
+description = "用hugo搭建博客的相关流程和命令"
 showFullContent = false
 readingTime = false
 +++
