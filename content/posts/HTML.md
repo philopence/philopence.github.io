@@ -66,3 +66,11 @@ showFullContent = false
 - `name` `value`: `name`作为上传数据的key，`value`为key对应的值
 - `placeholder`: 可以用CSS的`::placeholder`伪元素定义样式
 
+### 6. 布局（容器）
+
+无语义容器标签：`div` `span`
+语义化容器标签：`header` `footer` `article` `section` `aside` `nav` 等等，常用语移动端（兼容性好）
+
+### 7. 字符实体
+
+在页面中直接显示特殊字符，需要转化为字符实体，否则会被浏览器处理或解析。格式为`&FOO;`，如空格为`&nbsp;`
