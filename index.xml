@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Philopence's Blogs</title><link>/</link><description>Recent content on Philopence's Blogs</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 27 Dec 2021 19:08:19 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>HTML</title><link>/posts/html/</link><pubDate>Mon, 27 Dec 2021 19:08:19 +0800</pubDate><guid>/posts/html/</guid><description>理解 超文本标记语言，作为“结构”存在。其作用为语义化页面内容
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Philopence's Blogs</title><link>https://philopence.github.io/</link><description>Recent content on Philopence's Blogs</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 27 Dec 2021 19:27:20 +0800</lastBuildDate><atom:link href="https://philopence.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Build_Blogs_With_Hugo</title><link>https://philopence.github.io/posts/build_blogs_with_hugo/</link><pubDate>Mon, 27 Dec 2021 19:27:20 +0800</pubDate><guid>https://philopence.github.io/posts/build_blogs_with_hugo/</guid><description>Quick Start sudo pacman -Sy hugo # archlinux hugo new site DIRNAME cd DIRNAME git init git submodule add -f https://github.com/panr/hugo-theme-terminal.git themes/terminal # 编辑config.toml文件，添加主题推荐的配置 hugo new posts/my-first-post.md # 创建一篇博客，在/content/posts/目录中 hugo server # 开启服务预览博客，访问：localhost:1313 自动部署 创建.github/workflows/gh-pages.yml文件，添加如下内容： name: github pages on: push: branches: - master # Set a branch to deploy pull_request: jobs: deploy: runs-on: ubuntu-20.04 steps: - uses: actions/checkout@v2 with: submodules: true # Fetch Hugo themes (true OR recursive) fetch-depth: 0 # Fetch all history for .</description><content>&lt;h2 id="quick-start">Quick Start&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">sudo pacman -Sy hugo &lt;span style="color:#75715e"># archlinux&lt;/span>
+hugo new site DIRNAME
+cd DIRNAME
+git init
+git submodule add -f https://github.com/panr/hugo-theme-terminal.git themes/terminal
+&lt;span style="color:#75715e"># 编辑config.toml文件，添加主题推荐的配置&lt;/span>
+hugo new posts/my-first-post.md &lt;span style="color:#75715e"># 创建一篇博客，在/content/posts/目录中&lt;/span>
+hugo server &lt;span style="color:#75715e"># 开启服务预览博客，访问：localhost:1313&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="自动部署">自动部署&lt;/h2>
+&lt;ol>
+&lt;li>创建&lt;code>.github/workflows/gh-pages.yml&lt;/code>文件，添加如下内容：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">github pages&lt;/span>
+&lt;span style="color:#f92672">on&lt;/span>:
+&lt;span style="color:#f92672">push&lt;/span>:
+&lt;span style="color:#f92672">branches&lt;/span>:
+- &lt;span style="color:#ae81ff">master &lt;/span> &lt;span style="color:#75715e"># Set a branch to deploy&lt;/span>
+&lt;span style="color:#f92672">pull_request&lt;/span>:
+&lt;span style="color:#f92672">jobs&lt;/span>:
+&lt;span style="color:#f92672">deploy&lt;/span>:
+&lt;span style="color:#f92672">runs-on&lt;/span>: &lt;span style="color:#ae81ff">ubuntu-20.04&lt;/span>
+&lt;span style="color:#f92672">steps&lt;/span>:
+- &lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">actions/checkout@v2&lt;/span>
+&lt;span style="color:#f92672">with&lt;/span>:
+&lt;span style="color:#f92672">submodules&lt;/span>: &lt;span style="color:#66d9ef">true&lt;/span> &lt;span style="color:#75715e"># Fetch Hugo themes (true OR recursive)&lt;/span>
+&lt;span style="color:#f92672">fetch-depth&lt;/span>: &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#75715e"># Fetch all history for .GitInfo and .Lastmod&lt;/span>
+- &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Setup Hugo&lt;/span>
+&lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">peaceiris/actions-hugo@v2&lt;/span>
+&lt;span style="color:#f92672">with&lt;/span>:
+&lt;span style="color:#f92672">hugo-version&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;latest&amp;#39;&lt;/span>
+&lt;span style="color:#75715e"># extended: true&lt;/span>
+- &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Build&lt;/span>
+&lt;span style="color:#f92672">run&lt;/span>: &lt;span style="color:#ae81ff">hugo --minify&lt;/span>
+- &lt;span style="color:#f92672">name&lt;/span>: &lt;span style="color:#ae81ff">Deploy&lt;/span>
+&lt;span style="color:#f92672">uses&lt;/span>: &lt;span style="color:#ae81ff">peaceiris/actions-gh-pages@v3&lt;/span>
+&lt;span style="color:#f92672">if&lt;/span>: &lt;span style="color:#ae81ff">github.ref == &amp;#39;refs/heads/main&amp;#39;&lt;/span>
+&lt;span style="color:#f92672">with&lt;/span>:
+&lt;span style="color:#f92672">github_token&lt;/span>: &lt;span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}&lt;/span>
+&lt;span style="color:#f92672">publish_dir&lt;/span>: &lt;span style="color:#ae81ff">./public&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>
+&lt;p>修改Github pages分支为&lt;code>gh-pages&lt;/code>，默认推送的分支名&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>将&lt;code>config.toml&lt;/code>的&lt;code>baseURL&lt;/code>选项的值改为&lt;code>https://&amp;lt;USERNAME&amp;gt;.github.io&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>操作流程：创建博客 -&amp;gt; 提交更新 -&amp;gt; 推送到远程仓库&lt;/p>
+&lt;h2 id="其他命令">其他命令&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#75715e">## 新环境初始化&lt;/span>
+git clone git@github.com:USERNAME/USERNAME.github.io.git --recurse-submodules
+&lt;span style="color:#75715e">## 更新子模块&lt;/span>
+git submodule update --remote
+&lt;/code>&lt;/pre>&lt;/div></content></item><item><title>HTML</title><link>https://philopence.github.io/posts/html/</link><pubDate>Mon, 27 Dec 2021 19:08:19 +0800</pubDate><guid>https://philopence.github.io/posts/html/</guid><description>理解 超文本标记语言，作为“结构”存在。其作用为语义化页面内容
 默认的呈现样式由浏览器添加，为了保证页面的可读性，不需要理会，实际开发时会进行重置（不带任何样式）
 标签和属性都由对应功能的英文单词缩写而来，可做了解，加深理解和记忆
 属性是当前标签天生具备的能力

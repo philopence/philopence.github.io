@@ -3,46 +3,24 @@
 <title>HTML :: Philopence's Blogs</title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="理解 超文本标记语言，作为“结构”存在。其作用为语义化页面内容
-默认的呈现样式由浏览器添加，为了保证页面的可读性，不需要理会，实际开发时会进行重置（不带任何样式）
-标签和属性都由对应功能的英文单词缩写而来，可做了解，加深理解和记忆
-属性是当前标签天生具备的能力
-编写页面思路：在确定了页面内容后，为每个部分添加适合的标签。标签之间可以并列和嵌套，形成DOM树
-需要注意的标签及属性 0. 路径问题  相对路径 绝对路径 锚  1. img 只定义宽或高时，另一个属性自适应
-2. a 其href属性可以为锚点，也可以是JS代码段。值为#时，跳转到当前页面首屏；为javascript:void(0);时，无任何行为。
-3. ul dl ol 定义某种列表，只能嵌套自己的列表项标签
-4. table  合并单元格：rowspan, colspan 合并边框：border-collapse 表格标题标签：caption 表格结构化标签：thead tbody tfoot  5. form 自身的属性：
- action: 处理当前表单的URL enctype: 加密类型 method: 提交表单的HTTP方法  表单相关的标签有：
- input: type的各种值，radio必须name相同生效，file可以添加multiple多选，submit等按钮需要在form中生效 textarea: 常用rows和cols属性限定范围，CSS的resize: none;禁止缩放 select(name)&amp;gt;option(value): 默认选中为selected而非checked，name在select上，value在option上 label: 两种用法：嵌套和for id，后者更灵活，避免嵌套  相关属性：
- name value: name作为上传数据的key，value为key对应的值 placeholder: 可以用CSS的::placeholder伪元素定义样式  ">
+<meta name=description content="一些HTML的理解和注意点">
 <meta name=keywords content=",">
 <meta name=robots content="noodp">
-<link rel=canonical href=/posts/html/>
-<link rel=stylesheet href=/assets/style.css>
-<link rel=stylesheet href=/style.css>
-<link rel=apple-touch-icon href=/img/apple-touch-icon-192x192.png>
-<link rel="shortcut icon" href=/img/favicon/orange.png>
+<link rel=canonical href=https://philopence.github.io/posts/html/>
+<link rel=stylesheet href=https://philopence.github.io/assets/style.css>
+<link rel=stylesheet href=https://philopence.github.io/style.css>
+<link rel=apple-touch-icon href=https://philopence.github.io/img/apple-touch-icon-192x192.png>
+<link rel="shortcut icon" href=https://philopence.github.io/img/favicon/orange.png>
 <meta name=twitter:card content="summary">
 <meta name=twitter:site content>
 <meta name=twitter:creator content>
 <meta property="og:locale" content="en">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML">
-<meta property="og:description" content="理解 超文本标记语言，作为“结构”存在。其作用为语义化页面内容
-默认的呈现样式由浏览器添加，为了保证页面的可读性，不需要理会，实际开发时会进行重置（不带任何样式）
-标签和属性都由对应功能的英文单词缩写而来，可做了解，加深理解和记忆
-属性是当前标签天生具备的能力
-编写页面思路：在确定了页面内容后，为每个部分添加适合的标签。标签之间可以并列和嵌套，形成DOM树
-需要注意的标签及属性 0. 路径问题  相对路径 绝对路径 锚  1. img 只定义宽或高时，另一个属性自适应
-2. a 其href属性可以为锚点，也可以是JS代码段。值为#时，跳转到当前页面首屏；为javascript:void(0);时，无任何行为。
-3. ul dl ol 定义某种列表，只能嵌套自己的列表项标签
-4. table  合并单元格：rowspan, colspan 合并边框：border-collapse 表格标题标签：caption 表格结构化标签：thead tbody tfoot  5. form 自身的属性：
- action: 处理当前表单的URL enctype: 加密类型 method: 提交表单的HTTP方法  表单相关的标签有：
- input: type的各种值，radio必须name相同生效，file可以添加multiple多选，submit等按钮需要在form中生效 textarea: 常用rows和cols属性限定范围，CSS的resize: none;禁止缩放 select(name)&amp;gt;option(value): 默认选中为selected而非checked，name在select上，value在option上 label: 两种用法：嵌套和for id，后者更灵活，避免嵌套  相关属性：
- name value: name作为上传数据的key，value为key对应的值 placeholder: 可以用CSS的::placeholder伪元素定义样式  ">
-<meta property="og:url" content="/posts/html/">
+<meta property="og:description" content="一些HTML的理解和注意点">
+<meta property="og:url" content="https://philopence.github.io/posts/html/">
 <meta property="og:site_name" content="Philopence's Blogs">
-<meta property="og:image" content="/">
+<meta property="og:image" content="https://philopence.github.io/">
 <meta property="og:image:width" content="2048">
 <meta property="og:image:height" content="1024">
 <meta property="article:published_time" content="2021-12-27 19:08:19 +0800 +0800">
@@ -74,15 +52,15 @@ Happy Hacking
 <div class=content>
 <div class=post>
 <h1 class=post-title>
-<a href=/posts/html/>HTML</a></h1>
+<a href=https://philopence.github.io/posts/html/>HTML</a></h1>
 <div class=post-meta>
 <span class=post-date>
 2021-12-27
 </span>
 </div>
 <span class=post-tags>
-#<a href=/tags/></a>&nbsp;
-#<a href=/tags/></a>&nbsp;
+#<a href=https://philopence.github.io/tags/></a>&nbsp;
+#<a href=https://philopence.github.io/tags/></a>&nbsp;
 </span>
 <div class=post-content><div>
 <h2 id=理解>理解<a href=#理解 class=hanchor arialabel=Anchor>&#8983;</a> </h2>
@@ -131,6 +109,20 @@ Happy Hacking
 <li><code>placeholder</code>: 可以用CSS的<code>::placeholder</code>伪元素定义样式</li>
 </ul>
 </div></div>
+<div class=pagination>
+<div class=pagination__title>
+<span class=pagination__title-h>Read other posts</span>
+<hr>
+</div>
+<div class=pagination__buttons>
+<span class="button previous">
+<a href=https://philopence.github.io/posts/build_blogs_with_hugo/>
+<span class=button__icon>←</span>
+<span class=button__text>Build_Blogs_With_Hugo</span>
+</a>
+</span>
+</div>
+</div>
 </div>
 </div>
 <footer class=footer>
@@ -141,8 +133,8 @@ Happy Hacking
 </div>
 </div>
 </footer>
-<script src=/assets/main.js></script>
-<script src=/assets/prism.js></script>
+<script src=https://philopence.github.io/assets/main.js></script>
+<script src=https://philopence.github.io/assets/prism.js></script>
 </div>
 </body>
 </html>
