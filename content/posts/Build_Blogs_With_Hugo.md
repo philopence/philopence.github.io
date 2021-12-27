@@ -1,5 +1,5 @@
 +++
-title = "使用hugo搭建博客"
+title = "Build_Blogs_With_Hugo"
 date = "2021-12-27T19:27:20+08:00"
 author = ""
 authorTwitter = "" #do not include @
