@@ -1,4 +1,287 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Philopence's Blogs</title><link>https://philopence.github.io/</link><description>Recent content on Philopence's Blogs</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 27 Dec 2021 19:27:20 +0800</lastBuildDate><atom:link href="https://philopence.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Build_Blogs_With_Hugo</title><link>https://philopence.github.io/posts/build_blogs_with_hugo/</link><pubDate>Mon, 27 Dec 2021 19:27:20 +0800</pubDate><guid>https://philopence.github.io/posts/build_blogs_with_hugo/</guid><description>Quick Start sudo pacman -Sy hugo # archlinux hugo new site DIRNAME cd DIRNAME git init git submodule add -f https://github.com/panr/hugo-theme-terminal.git themes/terminal # 编辑config.toml文件，添加主题推荐的配置 hugo new posts/my-first-post.md # 创建一篇博客，在/content/posts/目录中 hugo server # 开启服务预览博客，访问：localhost:1313 自动部署 创建.github/workflows/gh-pages.yml文件，添加如下内容： name: github pages on: push: branches: - master # Set a branch to deploy pull_request: jobs: deploy: runs-on: ubuntu-20.04 steps: - uses: actions/checkout@v2 with: submodules: true # Fetch Hugo themes (true OR recursive) fetch-depth: 0 # Fetch all history for .</description><content>&lt;h2 id="quick-start">Quick Start&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Philopence's Blogs</title><link>https://philopence.github.io/</link><description>Recent content on Philopence's Blogs</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 05 Jan 2022 21:43:38 +0800</lastBuildDate><atom:link href="https://philopence.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Design a Keyboard</title><link>https://philopence.github.io/posts/how-to-design-a-keyboard/</link><pubDate>Wed, 05 Jan 2022 21:43:38 +0800</pubDate><guid>https://philopence.github.io/posts/how-to-design-a-keyboard/</guid><description>前言 有一些比较微妙的事，它看起来非常难，但你就是觉得自己似乎能行，便会产生强烈的欲望去实现它。
+我想做一把什么样的键盘 配列：3x6+6 旋钮 OLED 热插拔轴座 轴灯+底灯 亚克力堆叠的GasKet结构 QMK + VIA 基本流程 创造配列 根据配列生成矩阵 绘制pcb原理图 3D建模 焊接装配 编写和调试固件 资源 编辑配列：http://www.keyboard-layout-editor.com/ 矩阵原理：https://kbfirmware.com/ 开源固件：https://qmk.fm/ 构建模型：http://builder.swillkb.com/
+软件：Freecad，kicad
+QMK sudo pacman --needed --noconfirm -Sy git python-pip libffi ## pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simple python3 -m pip install --user qmk ## add &amp;#39;export PATH=&amp;#34;$HOME/.local/bin:$PATH&amp;#34;&amp;#39; to $HOME/.xinitrc git clone git@github.com:philopence/qmk_firmware.git --depth=1 git submodule update --init --depth=1 git remote add upstream &amp;#34;https://github.</description><content>&lt;h2 id="前言">前言&lt;/h2>
+&lt;blockquote>
+&lt;p>有一些比较微妙的事，它看起来非常难，但你就是觉得自己似乎能行，便会产生强烈的欲望去实现它。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="我想做一把什么样的键盘">我想做一把什么样的键盘&lt;/h2>
+&lt;ol>
+&lt;li>配列：3x6+6&lt;/li>
+&lt;li>旋钮 OLED&lt;/li>
+&lt;li>热插拔轴座&lt;/li>
+&lt;li>轴灯+底灯&lt;/li>
+&lt;li>亚克力堆叠的GasKet结构&lt;/li>
+&lt;li>QMK + VIA&lt;/li>
+&lt;/ol>
+&lt;h2 id="基本流程">基本流程&lt;/h2>
+&lt;ol>
+&lt;li>创造配列&lt;/li>
+&lt;li>根据配列生成矩阵&lt;/li>
+&lt;li>绘制pcb原理图&lt;/li>
+&lt;li>3D建模&lt;/li>
+&lt;li>焊接装配&lt;/li>
+&lt;li>编写和调试固件&lt;/li>
+&lt;/ol>
+&lt;h2 id="资源">资源&lt;/h2>
+&lt;p>编辑配列：http://www.keyboard-layout-editor.com/
+矩阵原理：https://kbfirmware.com/
+开源固件：https://qmk.fm/
+构建模型：http://builder.swillkb.com/&lt;/p>
+&lt;p>软件：Freecad，kicad&lt;/p>
+&lt;h2 id="qmk">QMK&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">sudo pacman --needed --noconfirm -Sy git python-pip libffi
+&lt;span style="color:#75715e">## pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simple&lt;/span>
+python3 -m pip install --user qmk
+&lt;span style="color:#75715e">## add &amp;#39;export PATH=&amp;#34;$HOME/.local/bin:$PATH&amp;#34;&amp;#39; to $HOME/.xinitrc&lt;/span>
+git clone git@github.com:philopence/qmk_firmware.git --depth&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
+git submodule update --init --depth&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
+git remote add upstream &lt;span style="color:#e6db74">&amp;#34;https://github.com/qmk/qmk_firmware.git&amp;#34;&lt;/span>
+sudo cp /home/arch/qmk_firmware/util/udev/50-qmk.rules /etc/udev/rules.d/
+qmk setup &lt;span style="color:#75715e">## for checked&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="log">Log&lt;/h2>
+&lt;p>2020-01-05: 产生了做这件事的想法，并从触手可及的地方开始实现。简单学习了kicad和freecad的用法
+2020-01-06: 受限于当前设备性能，优先完成软件部分，建模和设计放后面做。遵循始于所立原则；还是得从硬件部分着手，因为固件模板依赖于原理图，且没有硬件无法调试；键盘设计主题为JoStar-Pad，拥有旋钮，热插拔，RGB，OLED等全部功能的pad键盘，旨在练习与熟悉相关设计与编码，小尺寸节约成本。
+2020-01-07: 完成了PCB原理图的绘制工作，考虑到成本和焊接问题，可能会将MCU换成开发板做成热插拔的形式，进一步修改原理图。接下来需要学会修改定位板和底板，做成三明治结构
+2020-01-08: 从结果出发追根溯源或许会简单一些。&lt;/p></content></item><item><title>Custom Keyboard</title><link>https://philopence.github.io/posts/custom-keyboard/</link><pubDate>Sat, 01 Jan 2022 15:54:24 +0800</pubDate><guid>https://philopence.github.io/posts/custom-keyboard/</guid><description>为什么换键盘？ GK61驱动垃圾 只支持windows系统 按键配置程度很低 USB接口松动 不合理的布局 小指负荷较重而大拇指只方便按空格 键位利用率不高 布局 完全对称的40% 45键布局
+待定
+相较于60%布局的优点：
+手指负载更均衡，提高大拇指利用率，减轻小指的负担 用按键数量替换按键位置，这点见仁见智 更便携，占用空间更小，节约轴体成本等附送的优点 相较于其他40%布局的优点：
+空格两侧挤出了两个Fn键位，由两个大拇指直接控制，分别配合另一只手使用其他层按键 没有2U及以上的按键，省去了卫星轴相关的问题和成本 多两到三颗键位更方便使用 存在的缺点（随使用更新）：
+配件 PCB：QMK Type-C 热插拔 兼容5脚轴 不支持卫星轴，有点遗憾，不过我这配列不需要它，不然就得强制绑定一块定位板了，组不了无钢 轴体：佳达隆黄轴Pro 线性 厂润 1.2元 45颗 性价比 键帽：SA 垃圾包 无刻 PBT 从上到下依次为 R2 R3 R4 R3 配列特殊能凑齐按键就不错了，就别追求一套或按键对应了 壳：砖石微型积木 6mm规格 随机5色以上 大约2500到3000颗能拼出外壳 不喜欢空腔音 也是最不值得花钱的配件 线：尼龙螺旋type-C 尼龙质感好 螺旋线好整理 用不上定位板和卫星轴
+按键分配 得益于QMK固件，能最大程度的定义适合自己的键位
+空格两侧为fn
+第一层 分裂空格左为空格，右为ESC
+SDF以及JKL为基准的3x3矩阵模拟数字键盘
+CapsLock 为L-ctrl
+原ctrl位为使用频率最低的符号</description><content>&lt;h2 id="为什么换键盘">为什么换键盘？&lt;/h2>
+&lt;ol>
+&lt;li>GK61驱动垃圾 只支持windows系统 按键配置程度很低 USB接口松动&lt;/li>
+&lt;li>不合理的布局 小指负荷较重而大拇指只方便按空格 键位利用率不高&lt;/li>
+&lt;/ol>
+&lt;h2 id="布局">布局&lt;/h2>
+&lt;p>完全对称的40% 45键布局&lt;/p>
+&lt;p>&lt;a href="">待定&lt;/a>&lt;/p>
+&lt;p>相较于60%布局的优点：&lt;/p>
+&lt;ul>
+&lt;li>手指负载更均衡，提高大拇指利用率，减轻小指的负担&lt;/li>
+&lt;li>用按键数量替换按键位置，这点见仁见智&lt;/li>
+&lt;li>更便携，占用空间更小，节约轴体成本等附送的优点&lt;/li>
+&lt;/ul>
+&lt;p>相较于其他40%布局的优点：&lt;/p>
+&lt;ul>
+&lt;li>空格两侧挤出了两个Fn键位，由两个大拇指直接控制，分别配合另一只手使用其他层按键&lt;/li>
+&lt;li>没有2U及以上的按键，省去了卫星轴相关的问题和成本&lt;/li>
+&lt;li>多两到三颗键位更方便使用&lt;/li>
+&lt;/ul>
+&lt;p>存在的缺点（随使用更新）：&lt;/p>
+&lt;h2 id="配件">配件&lt;/h2>
+&lt;ol>
+&lt;li>PCB：QMK Type-C 热插拔 兼容5脚轴 不支持卫星轴，有点遗憾，不过我这配列不需要它，不然就得强制绑定一块定位板了，组不了无钢&lt;/li>
+&lt;li>轴体：佳达隆黄轴Pro 线性 厂润 1.2元 45颗 性价比&lt;/li>
+&lt;li>键帽：SA 垃圾包 无刻 PBT 从上到下依次为 R2 R3 R4 R3 配列特殊能凑齐按键就不错了，就别追求一套或按键对应了&lt;/li>
+&lt;li>壳：砖石微型积木 6mm规格 随机5色以上 大约2500到3000颗能拼出外壳 不喜欢空腔音 也是最不值得花钱的配件&lt;/li>
+&lt;li>线：尼龙螺旋type-C 尼龙质感好 螺旋线好整理&lt;/li>
+&lt;/ol>
+&lt;p>用不上定位板和卫星轴&lt;/p>
+&lt;h2 id="按键分配">按键分配&lt;/h2>
+&lt;p>得益于QMK固件，能最大程度的定义适合自己的键位&lt;/p>
+&lt;p>空格两侧为fn&lt;/p>
+&lt;h2 id="第一层">第一层&lt;/h2>
+&lt;p>分裂空格左为空格，右为ESC&lt;/p>
+&lt;p>SDF以及JKL为基准的3x3矩阵模拟数字键盘&lt;/p>
+&lt;p>CapsLock 为L-ctrl&lt;/p>
+&lt;p>原ctrl位为使用频率最低的符号&lt;/p>
+&lt;p>成对括号对称放置&lt;/p>
+&lt;p>其他特殊按键保持不动&lt;/p>
+&lt;h2 id="第二层">第二层&lt;/h2></content></item><item><title>Project_Experience</title><link>https://philopence.github.io/posts/project_experience/</link><pubDate>Wed, 29 Dec 2021 11:47:38 +0800</pubDate><guid>https://philopence.github.io/posts/project_experience/</guid><description/><content/></item><item><title>Arch_ins_conf</title><link>https://philopence.github.io/posts/arch_ins_conf/</link><pubDate>Tue, 28 Dec 2021 11:23:54 +0800</pubDate><guid>https://philopence.github.io/posts/arch_ins_conf/</guid><description>01 Pre_Ins systemctl stop reflector.service iwctl # station wlan0 connect[-hidden] SSID timedatectl set-ntp true # timedatectl status fdisk -l fdisk /dev/DISK mkfs.fat -F32 /dev/EFI mkfs.ext4 /dev/ROOT mount /dev/ROOT /mnt mkdir /mnt/boot mount /dev/EFI /mnt/boot 02 Ins_base_pkgs ## https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch vim /etc/pacman.d/mirrorlist pacstrap /mnt base base-devel linux linux-firmware fish neovim networkmanager grub efibootmgr intel-ucode 03 Conf the system genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab arch-chroot /mnt ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime hwclock --systohc nvim /etc/locale.</description><content>&lt;h2 id="01-pre_ins">01 Pre_Ins&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">systemctl stop reflector.service
+iwctl &lt;span style="color:#75715e"># station wlan0 connect[-hidden] SSID&lt;/span>
+timedatectl set-ntp true &lt;span style="color:#75715e"># timedatectl status&lt;/span>
+fdisk -l
+fdisk /dev/DISK
+mkfs.fat -F32 /dev/EFI
+mkfs.ext4 /dev/ROOT
+mount /dev/ROOT /mnt
+mkdir /mnt/boot
+mount /dev/EFI /mnt/boot
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="02-ins_base_pkgs">02 Ins_base_pkgs&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#75715e">## https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch&lt;/span>
+vim /etc/pacman.d/mirrorlist
+pacstrap /mnt base base-devel linux linux-firmware fish neovim networkmanager grub efibootmgr intel-ucode
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="03-conf-the-system">03 Conf the system&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab
+arch-chroot /mnt
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+hwclock --systohc
+nvim /etc/locale.gen &lt;span style="color:#75715e"># uncomment en_US.UTF-8 and zh_CN.UTF-8&lt;/span>
+locale-gen
+nvim /etc/locale.conf &lt;span style="color:#75715e"># add LANG=en_US.UTF-8&lt;/span>
+nvim /etc/hostname &lt;span style="color:#75715e"># set hostname&lt;/span>
+nvim /etc/hosts
+&lt;span style="color:#75715e"># 127.0.0.1 localhost&lt;/span>
+&lt;span style="color:#75715e"># ::1 localhost &lt;/span>
+&lt;span style="color:#75715e"># 127.0.1.1 linux.localdomain linux&lt;/span>
+systemctl enable NetworkManager.service
+passwd &lt;span style="color:#75715e"># root password&lt;/span>
+useradd -m -G wheel -s /usr/bin/fish username
+passwd username &lt;span style="color:#75715e"># user password&lt;/span>
+EDITOR&lt;span style="color:#f92672">=&lt;/span>nvim visudo &lt;span style="color:#75715e"># uncomment &amp;#34;%wheel ALL=(ALL) ALL&amp;#34;&lt;/span>
+grub-install --target&lt;span style="color:#f92672">=&lt;/span>x86_64-efi --efi-directory&lt;span style="color:#f92672">=&lt;/span>/boot --bootloader-id&lt;span style="color:#f92672">=&lt;/span>GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="04-reboot">04 Reboot&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">exit
+umount -R /mnt
+reboot
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="05-post_ins">05 Post_Ins&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">nmcli device wifi connect SSID password PASSWORD &lt;span style="color:#f92672">[&lt;/span>hidden yes&lt;span style="color:#f92672">]&lt;/span>
+&lt;span style="color:#75715e"># https://mirrors.cloud.tencent.com/archlinuxcn/$arch&lt;/span>
+nvim /etc/pacman.conf &lt;span style="color:#75715e"># enable Colors and multilib, and archlinuxCN mirror&lt;/span>
+sudo pacman -Syyu
+sudo pacman -Sy archlinuxcn-keyring
+&lt;span style="color:#75715e">## WM and tools&lt;/span>
+xorg xorg-xinit xdg-user-dirs xclip lxsession
+xf86-video-intel vulkan-intel
+alsa-utils pulseaudio-alsa bluez bluez-utils pulseaudio-bluetooth
+noto-fonts noto-fonts-cjk noto-fonts-emoji nerd-fonts-jetbrains-mono
+fcitx5-im fcitx5-rime fcitx5-material-theme
+lxappearance qt5ct kvantum
+capitaine-cursors papirus-icon-theme material-gtk-theme kvantum-material-theme
+bspwm sxhkd kitty rofi picom dunst
+git openssh npm feh scrot lazygit ripgrep ranger tmux hugo interception-caps2esc udiskie unarchiver
+chromium code v2raya&lt;span style="color:#f92672">(&lt;/span>v2ray&lt;span style="color:#f92672">)&lt;/span> pomotroid-bin
+&lt;span style="color:#75715e">## TODO 用 dotfiles 替代&lt;/span>
+~/.xinitrc &lt;span style="color:#75715e"># exec bspwm&lt;/span>
+mkdir ~/.config/&lt;span style="color:#f92672">{&lt;/span>bspwm,sxhkd&lt;span style="color:#f92672">}&lt;/span>
+cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm
+cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd
+&lt;span style="color:#75715e"># urxvt -&amp;gt; kitty&lt;/span>
+&lt;span style="color:#75715e"># dmenu_run -&amp;gt; &amp;#34;rofi -show run&amp;#34;&lt;/span>
+startx
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="06-proxy">06 Proxy&lt;/h2>
+&lt;p>Start/Enable v2raya.service deamon. Activite &lt;code>localhost:2017&lt;/code>, import url of subscription&lt;/p>
+&lt;h2 id="07-dotfiles">07 Dotfiles&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">git clone --bare https://github.com/philopence/dotfiles.git $HOME/.dotfiles
+alias dot &lt;span style="color:#e6db74">&amp;#39;/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME&amp;#39;&lt;/span>
+dot config --local status.showUntrackedFiles no
+dot checkout &lt;span style="color:#75715e"># remove files and dirs of conflict&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="08-custom-keyboard">08 Custom Keyboard&lt;/h2>
+&lt;p>Create &lt;code>/etc/udev/hwdb.d/99-custom-keyboard.hwdb&lt;/code> file, add this lines as follow.&lt;/p>
+&lt;pre tabindex="0">&lt;code>evdev:input:b0003v*
+KEYBOARD_KEY_70039=leftctrl # bind capslock to leftctrl
+KEYBOARD_KEY_70035=capslock # bind grave to capslock
+KEYBOARD_KEY_700e0=grave # bind leftctrl to grave
+&lt;/code>&lt;/pre>&lt;p>And then, run &lt;code>systemd-hwdb update&lt;/code> and &lt;code>udevadm trigger&lt;/code> command.&lt;/p>
+&lt;p>Or Install &lt;code>interception-caps2esc&lt;/code> package, then edit &lt;code>/etc/interception/udevmon.d/caps2esc.yaml&lt;/code> file, add this lines as follow:&lt;/p>
+&lt;pre tabindex="0">&lt;code>- JOB: intercept -g $DEVNODE | caps2esc -m 2 | uinput -d $DEVNODE
+DEVICE:
+EVENTS:
+EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
+&lt;/code>&lt;/pre>&lt;p>Start/Enable udevmon.service deamon.&lt;/p>
+&lt;h2 id="09-swapfile">09 Swapfile&lt;/h2>
+&lt;p>switch to Root user&lt;/p>
+&lt;p>Note: count = 8192(8G)&lt;/p>
+&lt;pre tabindex="0">&lt;code>dd if=/dev/zero of=/swapfile bs=1M count=8192 status=progress
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+nvim /etc/fstab
+# /swapfile none swap defaults 0 0
+&lt;/code>&lt;/pre>&lt;h2 id="10-npm-pkgs">10 Npm pkgs&lt;/h2>
+&lt;pre tabindex="0">&lt;code>prettier
+live-server
+@vue/cli
+vscode-langservers-extracted
+emmet-ls
+vls
+typescript
+typescript-language-server
+&lt;/code>&lt;/pre></content></item><item><title>CSS</title><link>https://philopence.github.io/posts/css/</link><pubDate>Tue, 28 Dec 2021 11:00:22 +0800</pubDate><guid>https://philopence.github.io/posts/css/</guid><description>前言 记录CSS的常用样式、难点以及理解
+基础知识 CSS: cascading style sheets 层叠样式表。作为“样式”存在 selector { property: value; ...; /* commnet */ } 通过选择器找到需要的元素，然后为其设置样式 引入方式 内嵌：在style标签中编写 外联：通过link标签的href属性引入，注意rel属性设置为stylesheets表示两者关系为样式表。常用，模块化利于代码复用 行内：写在标签的style属性中，通常通过JS动态设置，优先级仅次于!important。 颜色值: 常用的是rgba()和十六进制 标准流：网页默认的排版方式 CSS推荐书写顺序：布局 盒模型 背景 文本 字体 三大特性 继承：font 和 text 系列的属性会继承。继承的优先级小于浏览器的默认样式 层叠：同一元素的相同属性会覆盖；不同属性会同时生效 优先级：优先级高的生效，如果优先级相同则后被执行的样式生效 元素 伪元素(001) &amp;lt; Class 伪类 属性(010) &amp;lt; Id(100) &amp;lt; 行内 &amp;lt; !important
+可以简单概括为：选择器的范围与优先级成反比
+Tips: 不推荐使用!important，不便于开发调试，而且会影响JS修改的行内样式，如果必须提高优先级，可以重复选择器，如#id#id {}
+选择器 元素选择器 tagname 类选择器 .classname。使用思路：定义 -&amp;gt; 调用 ID选择器 #id。ID通常为JS服务，便于唯一选择某个元素，不可为了样式给元素设置ID 通配符选择器 *。会遍历文档中所有标签，性能较低，一般不用，或用来消除浏览器给标签添加的默认样式 伪元素选择器 ::before ::after 创建一个伪元素 结构伪类选择器 :FOO-child :FOO-of-type。FOO可以是first last nth，为nth时，可以写表达式，n为自然数 伪类选择器 :hover 复合选择器： &amp;gt; , ~ + 属性选择器 [attribute=&amp;quot;value&amp;quot;] 含有正则匹配 Box content + padding + border + margin</description><content>&lt;h2 id="前言">前言&lt;/h2>
+&lt;p>记录CSS的常用样式、难点以及理解&lt;/p>
+&lt;h2 id="基础知识">基础知识&lt;/h2>
+&lt;ul>
+&lt;li>CSS: cascading style sheets 层叠样式表。作为“样式”存在&lt;/li>
+&lt;li>&lt;code>selector { property: value; ...; /* commnet */ }&lt;/code>&lt;/li>
+&lt;li>通过选择器找到需要的元素，然后为其设置样式&lt;/li>
+&lt;li>引入方式
+&lt;ul>
+&lt;li>内嵌：在&lt;code>style&lt;/code>标签中编写&lt;/li>
+&lt;li>外联：通过&lt;code>link&lt;/code>标签的&lt;code>href&lt;/code>属性引入，注意&lt;code>rel&lt;/code>属性设置为&lt;code>stylesheets&lt;/code>表示两者关系为样式表。常用，模块化利于代码复用&lt;/li>
+&lt;li>行内：写在标签的&lt;code>style&lt;/code>属性中，通常通过JS动态设置，优先级仅次于&lt;code>!important&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>颜色值: 常用的是&lt;code>rgba()&lt;/code>和十六进制&lt;/li>
+&lt;li>标准流：网页默认的排版方式&lt;/li>
+&lt;li>CSS推荐书写顺序：布局 盒模型 背景 文本 字体&lt;/li>
+&lt;/ul>
+&lt;h2 id="三大特性">三大特性&lt;/h2>
+&lt;ul>
+&lt;li>继承：font 和 text 系列的属性会继承。继承的优先级小于浏览器的默认样式&lt;/li>
+&lt;li>层叠：同一元素的相同属性会覆盖；不同属性会同时生效&lt;/li>
+&lt;li>优先级：优先级高的生效，如果优先级相同则后被执行的样式生效&lt;/li>
+&lt;/ul>
+&lt;p>元素 伪元素(001) &amp;lt; Class 伪类 属性(010) &amp;lt; Id(100) &amp;lt; 行内 &amp;lt; !important&lt;/p>
+&lt;p>可以简单概括为：选择器的范围与优先级成反比&lt;/p>
+&lt;p>Tips: 不推荐使用&lt;code>!important&lt;/code>，不便于开发调试，而且会影响JS修改的行内样式，如果必须提高优先级，可以重复选择器，如&lt;code>#id#id {}&lt;/code>&lt;/p>
+&lt;h2 id="选择器">选择器&lt;/h2>
+&lt;ul>
+&lt;li>元素选择器 &lt;code>tagname&lt;/code>&lt;/li>
+&lt;li>类选择器 &lt;code>.classname&lt;/code>。使用思路：定义 -&amp;gt; 调用&lt;/li>
+&lt;li>ID选择器 &lt;code>#id&lt;/code>。ID通常为JS服务，便于唯一选择某个元素，不可为了样式给元素设置ID&lt;/li>
+&lt;li>通配符选择器 &lt;code>*&lt;/code>。会遍历文档中所有标签，性能较低，一般不用，或用来消除浏览器给标签添加的默认样式&lt;/li>
+&lt;li>伪元素选择器 &lt;code>::before&lt;/code> &lt;code>::after&lt;/code> 创建一个伪元素&lt;/li>
+&lt;li>结构伪类选择器 &lt;code>:FOO-child&lt;/code> &lt;code>:FOO-of-type&lt;/code>。FOO可以是&lt;code>first&lt;/code> &lt;code>last&lt;/code> &lt;code>nth&lt;/code>，为&lt;code>nth&lt;/code>时，可以写表达式，n为自然数&lt;/li>
+&lt;li>伪类选择器 &lt;code>:hover&lt;/code>&lt;/li>
+&lt;li>复合选择器： &lt;code> &lt;/code> &lt;code>&amp;gt;&lt;/code> &lt;code>,&lt;/code> &lt;code>~&lt;/code> &lt;code>+&lt;/code>&lt;/li>
+&lt;li>属性选择器 &lt;code>[attribute=&amp;quot;value&amp;quot;]&lt;/code> 含有正则匹配&lt;/li>
+&lt;/ul>
+&lt;h2 id="box">Box&lt;/h2>
+&lt;p>content + padding + border + margin&lt;/p>
+&lt;p>实际占用空间包含这四部分，而可视区域不包含margin&lt;/p>
+&lt;ul>
+&lt;li>嵌套块级元素，上外边距会塌陷&lt;/li>
+&lt;li>相邻块级元素之间的外边距为两者的最大值&lt;/li>
+&lt;li>&lt;code>inline&lt;/code>元素垂直方向的内外边距都无效&lt;/li>
+&lt;/ul>
+&lt;p>块级元素居中：&lt;code>margin: 0 auto;&lt;/code>&lt;/p>
+&lt;p>内外边距的值始终遵循“上右下左”的顺序&lt;/p>
+&lt;p>上左外边距会移动元素自身，而右下外边距会挤开其他元素&lt;/p>
+&lt;p>页面由各种各样的“盒子”组成&lt;/p>
+&lt;h2 id="float">Float&lt;/h2>
+&lt;p>早期用于图文环绕，现在多用于布局&lt;/p>
+&lt;p>浮动流：排列方式和标准流的行内块一样，浮动的元素也都转化为行内块元素的特点&lt;/p>
+&lt;p>备注：用&lt;code>inline-block&lt;/code>布局时，HTML代码中标签换行会在页面中生成一个空格间隙，影响布局&lt;/p>
+&lt;p>缺点：&lt;/p>
+&lt;ol>
+&lt;li>浮动的元素为半脱离标准流，不占用标准流的空间，不会撑开父元素，会覆盖“下方”元素，但无法覆盖其中的文本&lt;/li>
+&lt;li>无法用&lt;code>text-align: center;&lt;/code>和&lt;code>margin: 0 auto;&lt;/code>居中了&lt;/li>
+&lt;/ol>
+&lt;p>清除浮动的影响：&lt;/p>
+&lt;ol>
+&lt;li>直接给父元素设置&lt;code>height&lt;/code>&lt;/li>
+&lt;li>利用&lt;code>::after&lt;/code>在父元素最后生成伪元素，应用&lt;code>clear: both;&lt;/code>。&lt;/li>
+&lt;li>BFC: &lt;code>overflow: hidden;&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;p>通常使用以下方式清除浮动的同时，也可以解决嵌套块级元素上外边距塌陷的问题&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-css" data-lang="css">.&lt;span style="color:#a6e22e">clearfix&lt;/span>::&lt;span style="color:#a6e22e">after&lt;/span>&lt;span style="color:#f92672">,&lt;/span> .&lt;span style="color:#a6e22e">clearfix&lt;/span>::&lt;span style="color:#a6e22e">before&lt;/span> {
+&lt;span style="color:#66d9ef">content&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>;
+&lt;span style="color:#66d9ef">display&lt;/span>: &lt;span style="color:#66d9ef">table&lt;/span>;
+}
+.&lt;span style="color:#a6e22e">clearfix&lt;/span>::&lt;span style="color:#a6e22e">after&lt;/span> {
+&lt;span style="color:#66d9ef">clear&lt;/span>: &lt;span style="color:#66d9ef">both&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="常用样式分组">常用样式分组&lt;/h2>
+&lt;h3 id="1-字体">1. 字体&lt;/h3>
+&lt;p>&lt;code>font: style weight size/hight family;&lt;/code> 不可更换顺序，&lt;code>size&lt;/code>和&lt;code>family&lt;/code>不能省略&lt;/p>
+&lt;h3 id="2-文本">2. 文本&lt;/h3>
+&lt;p>&lt;code>text-indent: 2em;&lt;/code> &lt;code>text-align: center;&lt;/code> &lt;code>text-decoration: none;&lt;/code>&lt;/p>
+&lt;h3 id="3-背景">3. 背景&lt;/h3>
+&lt;p>&lt;code>background: color image repeat attachment position;&lt;/code>&lt;/p>
+&lt;p>无固定顺序，但推荐这样写&lt;/p></content></item><item><title>Build_Blogs_With_Hugo</title><link>https://philopence.github.io/posts/build_blogs_with_hugo/</link><pubDate>Mon, 27 Dec 2021 19:27:20 +0800</pubDate><guid>https://philopence.github.io/posts/build_blogs_with_hugo/</guid><description>Quick Start sudo pacman -Sy hugo # archlinux hugo new site DIRNAME cd DIRNAME git init git submodule add -f https://github.com/panr/hugo-theme-terminal.git themes/terminal # 编辑config.toml文件，添加主题推荐的配置 hugo new posts/my-first-post.md # 创建一篇博客，在/content/posts/目录中 hugo server # 开启服务预览博客，访问：localhost:1313 自动部署 创建.github/workflows/gh-pages.yml文件，添加如下内容： name: github pages on: push: branches: - master # Set a branch to deploy pull_request: jobs: deploy: runs-on: ubuntu-20.04 steps: - uses: actions/checkout@v2 with: submodules: true # Fetch Hugo themes (true OR recursive) fetch-depth: 0 # Fetch all history for .</description><content>&lt;h2 id="quick-start">Quick Start&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">sudo pacman -Sy hugo &lt;span style="color:#75715e"># archlinux&lt;/span>
 hugo new site DIRNAME
 cd DIRNAME
@@ -57,6 +340,7 @@ git submodule update --remote
 标签和属性都由对应功能的英文单词缩写而来，可做了解，加深理解和记忆
 属性是当前标签天生具备的能力
 编写页面思路：在确定了页面内容后，为每个部分添加适合的标签。标签之间可以并列和嵌套，形成DOM树
+标签嵌套时需要符合语义，如p里放h就不合适，a也不能嵌套a(可以嵌套其他元素)
 需要注意的标签及属性 0. 路径问题 相对路径 绝对路径 锚 1. img 只定义宽或高时，另一个属性自适应
 2. a 其href属性可以为锚点，也可以是JS代码段。值为#时，跳转到当前页面首屏；为javascript:void(0);时，无任何行为。
 3. ul dl ol 定义某种列表，只能嵌套自己的列表项标签
@@ -69,6 +353,7 @@ name value: name作为上传数据的key，value为key对应的值 placeholder: 
 &lt;p>标签和属性都由对应功能的英文单词缩写而来，可做了解，加深理解和记忆&lt;/p>
 &lt;p>属性是当前标签天生具备的能力&lt;/p>
 &lt;p>编写页面思路：在确定了页面内容后，为每个部分添加适合的标签。标签之间可以并列和嵌套，形成DOM树&lt;/p>
+&lt;p>标签嵌套时需要符合语义，如&lt;code>p&lt;/code>里放&lt;code>h&lt;/code>就不合适，&lt;code>a&lt;/code>也不能嵌套&lt;code>a&lt;/code>(可以嵌套其他元素)&lt;/p>
 &lt;h2 id="需要注意的标签及属性">需要注意的标签及属性&lt;/h2>
 &lt;h3 id="0-路径问题">0. 路径问题&lt;/h3>
 &lt;ul>

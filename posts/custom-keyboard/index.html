@@ -1,0 +1,142 @@
+<!doctype html><html lang=en>
+<head>
+<title>Custom Keyboard :: Philopence's Blogs</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="第二把客制化键盘">
+<meta name=keywords content=",">
+<meta name=robots content="noodp">
+<link rel=canonical href=https://philopence.github.io/posts/custom-keyboard/>
+<link rel=stylesheet href=https://philopence.github.io/assets/style.css>
+<link rel=stylesheet href=https://philopence.github.io/style.css>
+<link rel=apple-touch-icon href=https://philopence.github.io/img/apple-touch-icon-192x192.png>
+<link rel="shortcut icon" href=https://philopence.github.io/img/favicon/orange.png>
+<meta name=twitter:card content="summary">
+<meta name=twitter:site content>
+<meta name=twitter:creator content>
+<meta property="og:locale" content="en">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Custom Keyboard">
+<meta property="og:description" content="第二把客制化键盘">
+<meta property="og:url" content="https://philopence.github.io/posts/custom-keyboard/">
+<meta property="og:site_name" content="Philopence's Blogs">
+<meta property="og:image" content="https://philopence.github.io/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+<meta property="article:published_time" content="2022-01-01 15:54:24 +0800 +0800">
+</head>
+<body class=orange>
+<div class="container headings--one-size">
+<header class=header>
+<div class=header__inner>
+<div class=header__logo>
+<a href=/>
+<div class=logo>
+Happy Hacking
+</div>
+</a>
+</div>
+<div class=menu-trigger>menu</div>
+</div>
+<nav class=menu>
+<ul class="menu__inner menu__inner--desktop">
+<li><a href=/about>About</a></li>
+<li><a href=/showcase>Showcase</a></li>
+</ul>
+<ul class="menu__inner menu__inner--mobile">
+<li><a href=/about>About</a></li>
+<li><a href=/showcase>Showcase</a></li>
+</ul>
+</nav>
+</header>
+<div class=content>
+<div class=post>
+<h1 class=post-title>
+<a href=https://philopence.github.io/posts/custom-keyboard/>Custom Keyboard</a></h1>
+<div class=post-meta>
+<span class=post-date>
+2022-01-01
+</span>
+</div>
+<span class=post-tags>
+#<a href=https://philopence.github.io/tags/></a>&nbsp;
+#<a href=https://philopence.github.io/tags/></a>&nbsp;
+</span>
+<div class=post-content><div>
+<h2 id=为什么换键盘>为什么换键盘？<a href=#为什么换键盘 class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<ol>
+<li>GK61驱动垃圾 只支持windows系统 按键配置程度很低 USB接口松动</li>
+<li>不合理的布局 小指负荷较重而大拇指只方便按空格 键位利用率不高</li>
+</ol>
+<h2 id=布局>布局<a href=#布局 class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<p>完全对称的40% 45键布局</p>
+<p><a href>待定</a></p>
+<p>相较于60%布局的优点：</p>
+<ul>
+<li>手指负载更均衡，提高大拇指利用率，减轻小指的负担</li>
+<li>用按键数量替换按键位置，这点见仁见智</li>
+<li>更便携，占用空间更小，节约轴体成本等附送的优点</li>
+</ul>
+<p>相较于其他40%布局的优点：</p>
+<ul>
+<li>空格两侧挤出了两个Fn键位，由两个大拇指直接控制，分别配合另一只手使用其他层按键</li>
+<li>没有2U及以上的按键，省去了卫星轴相关的问题和成本</li>
+<li>多两到三颗键位更方便使用</li>
+</ul>
+<p>存在的缺点（随使用更新）：</p>
+<h2 id=配件>配件<a href=#配件 class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<ol>
+<li>PCB：QMK Type-C 热插拔 兼容5脚轴 不支持卫星轴，有点遗憾，不过我这配列不需要它，不然就得强制绑定一块定位板了，组不了无钢</li>
+<li>轴体：佳达隆黄轴Pro 线性 厂润 1.2元 45颗 性价比</li>
+<li>键帽：SA 垃圾包 无刻 PBT 从上到下依次为 R2 R3 R4 R3 配列特殊能凑齐按键就不错了，就别追求一套或按键对应了</li>
+<li>壳：砖石微型积木 6mm规格 随机5色以上 大约2500到3000颗能拼出外壳 不喜欢空腔音 也是最不值得花钱的配件</li>
+<li>线：尼龙螺旋type-C 尼龙质感好 螺旋线好整理</li>
+</ol>
+<p>用不上定位板和卫星轴</p>
+<h2 id=按键分配>按键分配<a href=#按键分配 class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<p>得益于QMK固件，能最大程度的定义适合自己的键位</p>
+<p>空格两侧为fn</p>
+<h2 id=第一层>第一层<a href=#第一层 class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<p>分裂空格左为空格，右为ESC</p>
+<p>SDF以及JKL为基准的3x3矩阵模拟数字键盘</p>
+<p>CapsLock 为L-ctrl</p>
+<p>原ctrl位为使用频率最低的符号</p>
+<p>成对括号对称放置</p>
+<p>其他特殊按键保持不动</p>
+<h2 id=第二层>第二层<a href=#第二层 class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+</div></div>
+<div class=pagination>
+<div class=pagination__title>
+<span class=pagination__title-h>Read other posts</span>
+<hr>
+</div>
+<div class=pagination__buttons>
+<span class="button previous">
+<a href=https://philopence.github.io/posts/how-to-design-a-keyboard/>
+<span class=button__icon>←</span>
+<span class=button__text>How to Design a Keyboard</span>
+</a>
+</span>
+<span class="button next">
+<a href=https://philopence.github.io/posts/project_experience/>
+<span class=button__text>Project_Experience</span>
+<span class=button__icon>→</span>
+</a>
+</span>
+</div>
+</div>
+</div>
+</div>
+<footer class=footer>
+<div class=footer__inner>
+<div class=copyright>
+<span>© 2022 Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>:: Theme made by <a href=https://twitter.com/panr>panr</a></span>
+</div>
+</div>
+</footer>
+<script src=https://philopence.github.io/assets/main.js></script>
+<script src=https://philopence.github.io/assets/prism.js></script>
+</div>
+</body>
+</html>
