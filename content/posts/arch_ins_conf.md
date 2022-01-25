@@ -95,8 +95,8 @@ fcitx5-im fcitx5-rime fcitx5-material-theme
 lxappearance qt5ct kvantum
 capitaine-cursors papirus-icon-theme material-gtk-theme kvantum-material-theme
 bspwm sxhkd kitty rofi picom dunst
-git openssh npm feh scrot lazygit ripgrep ranger tmux hugo interception-caps2esc udiskie unarchiver
-chromium code v2raya(v2ray) pomotroid-bin
+git openssh npm feh scrot lazygit fd ripgrep ranger highlight tmux hugo interception-caps2esc udiskie unarchiver flameshot
+chromium code v2raya(v2ray) pomotroid-bin exa
 
 ## TODO 用 dotfiles 替代
 ~/.xinitrc # exec bspwm

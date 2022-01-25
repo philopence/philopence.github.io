@@ -15,14 +15,24 @@ readingTime = false
 
 > 有一些比较微妙的事，它看起来非常难，但你就是觉得自己似乎能行，便会产生强烈的欲望去实现它。
 
-## 我想做一把什么样的键盘
+## 预想
 
-1. 配列：3x6+6
-2. 旋钮 OLED
-3. 热插拔轴座
-4. 轴灯+底灯
+1. 配列：3x6+6 仿corne布局
+2. 旋转编码器 OLED
+3. 轴灯+底灯
+4. 热插拔轴座
 5. 亚克力堆叠的GasKet结构
-6. QMK + VIA
+6. QMK固件
+
+## 准备
+
+### 硬件
+
+焊接套装，键盘配件，烧录工具
+
+### 软件
+
+kicad，inkscape，freecad
 
 ## 基本流程
 
@@ -39,8 +49,6 @@ readingTime = false
 矩阵原理：https://kbfirmware.com/
 开源固件：https://qmk.fm/
 构建模型：http://builder.swillkb.com/
-
-软件：Freecad，kicad
 
 ## QMK
 
@@ -60,6 +68,10 @@ sudo cp /home/arch/qmk_firmware/util/udev/50-qmk.rules /etc/udev/rules.d/
 
 qmk setup ## for checked
 ```
+
+## 其他
+
+客制化键盘线
 
 ## Log
 
