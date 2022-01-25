@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Philopence's Blogs</title><link>https://philopence.github.io/</link><description>Recent content on Philopence's Blogs</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 05 Jan 2022 21:43:38 +0800</lastBuildDate><atom:link href="https://philopence.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Design a Keyboard</title><link>https://philopence.github.io/posts/how-to-design-a-keyboard/</link><pubDate>Wed, 05 Jan 2022 21:43:38 +0800</pubDate><guid>https://philopence.github.io/posts/how-to-design-a-keyboard/</guid><description>前言 有一些比较微妙的事，它看起来非常难，但你就是觉得自己似乎能行，便会产生强烈的欲望去实现它。
-我想做一把什么样的键盘 配列：3x6+6 旋钮 OLED 热插拔轴座 轴灯+底灯 亚克力堆叠的GasKet结构 QMK + VIA 基本流程 创造配列 根据配列生成矩阵 绘制pcb原理图 3D建模 焊接装配 编写和调试固件 资源 编辑配列：http://www.keyboard-layout-editor.com/ 矩阵原理：https://kbfirmware.com/ 开源固件：https://qmk.fm/ 构建模型：http://builder.swillkb.com/
-软件：Freecad，kicad
+预想 配列：3x6+6 仿corne布局 旋转编码器 OLED 轴灯+底灯 热插拔轴座 亚克力堆叠的GasKet结构 QMK固件 准备 硬件 焊接套装，键盘配件，烧录工具
+软件 kicad，inkscape，freecad
+基本流程 创造配列 根据配列生成矩阵 绘制pcb原理图 3D建模 焊接装配 编写和调试固件 资源 编辑配列：http://www.keyboard-layout-editor.com/ 矩阵原理：https://kbfirmware.com/ 开源固件：https://qmk.fm/ 构建模型：http://builder.swillkb.com/
 QMK sudo pacman --needed --noconfirm -Sy git python-pip libffi ## pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simple python3 -m pip install --user qmk ## add &amp;#39;export PATH=&amp;#34;$HOME/.local/bin:$PATH&amp;#34;&amp;#39; to $HOME/.xinitrc git clone git@github.com:philopence/qmk_firmware.git --depth=1 git submodule update --init --depth=1 git remote add upstream &amp;#34;https://github.</description><content>&lt;h2 id="前言">前言&lt;/h2>
 &lt;blockquote>
 &lt;p>有一些比较微妙的事，它看起来非常难，但你就是觉得自己似乎能行，便会产生强烈的欲望去实现它。&lt;/p>
 &lt;/blockquote>
-&lt;h2 id="我想做一把什么样的键盘">我想做一把什么样的键盘&lt;/h2>
+&lt;h2 id="预想">预想&lt;/h2>
 &lt;ol>
-&lt;li>配列：3x6+6&lt;/li>
-&lt;li>旋钮 OLED&lt;/li>
-&lt;li>热插拔轴座&lt;/li>
+&lt;li>配列：3x6+6 仿corne布局&lt;/li>
+&lt;li>旋转编码器 OLED&lt;/li>
 &lt;li>轴灯+底灯&lt;/li>
+&lt;li>热插拔轴座&lt;/li>
 &lt;li>亚克力堆叠的GasKet结构&lt;/li>
-&lt;li>QMK + VIA&lt;/li>
+&lt;li>QMK固件&lt;/li>
 &lt;/ol>
+&lt;h2 id="准备">准备&lt;/h2>
+&lt;h3 id="硬件">硬件&lt;/h3>
+&lt;p>焊接套装，键盘配件，烧录工具&lt;/p>
+&lt;h3 id="软件">软件&lt;/h3>
+&lt;p>kicad，inkscape，freecad&lt;/p>
 &lt;h2 id="基本流程">基本流程&lt;/h2>
 &lt;ol>
 &lt;li>创造配列&lt;/li>
@@ -28,7 +34,6 @@ QMK sudo pacman --needed --noconfirm -Sy git python-pip libffi ## pip config set
 矩阵原理：https://kbfirmware.com/
 开源固件：https://qmk.fm/
 构建模型：http://builder.swillkb.com/&lt;/p>
-&lt;p>软件：Freecad，kicad&lt;/p>
 &lt;h2 id="qmk">QMK&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">sudo pacman --needed --noconfirm -Sy git python-pip libffi
 &lt;span style="color:#75715e">## pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simple&lt;/span>
@@ -39,28 +44,24 @@ git submodule update --init --depth&lt;span style="color:#f92672">=&lt;/span>&lt
 git remote add upstream &lt;span style="color:#e6db74">&amp;#34;https://github.com/qmk/qmk_firmware.git&amp;#34;&lt;/span>
 sudo cp /home/arch/qmk_firmware/util/udev/50-qmk.rules /etc/udev/rules.d/
 qmk setup &lt;span style="color:#75715e">## for checked&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="log">Log&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="其他">其他&lt;/h2>
+&lt;p>客制化键盘线&lt;/p>
+&lt;h2 id="log">Log&lt;/h2>
 &lt;p>2020-01-05: 产生了做这件事的想法，并从触手可及的地方开始实现。简单学习了kicad和freecad的用法
 2020-01-06: 受限于当前设备性能，优先完成软件部分，建模和设计放后面做。遵循始于所立原则；还是得从硬件部分着手，因为固件模板依赖于原理图，且没有硬件无法调试；键盘设计主题为JoStar-Pad，拥有旋钮，热插拔，RGB，OLED等全部功能的pad键盘，旨在练习与熟悉相关设计与编码，小尺寸节约成本。
 2020-01-07: 完成了PCB原理图的绘制工作，考虑到成本和焊接问题，可能会将MCU换成开发板做成热插拔的形式，进一步修改原理图。接下来需要学会修改定位板和底板，做成三明治结构
-2020-01-08: 从结果出发追根溯源或许会简单一些。&lt;/p></content></item><item><title>Custom Keyboard</title><link>https://philopence.github.io/posts/custom-keyboard/</link><pubDate>Sat, 01 Jan 2022 15:54:24 +0800</pubDate><guid>https://philopence.github.io/posts/custom-keyboard/</guid><description>为什么换键盘？ GK61驱动垃圾 只支持windows系统 按键配置程度很低 USB接口松动 不合理的布局 小指负荷较重而大拇指只方便按空格 键位利用率不高 布局 完全对称的40% 45键布局
+2020-01-08: 从结果出发追根溯源或许会简单一些。&lt;/p></content></item><item><title>Custom Keyboard</title><link>https://philopence.github.io/posts/custom-keyboard/</link><pubDate>Sat, 01 Jan 2022 15:54:24 +0800</pubDate><guid>https://philopence.github.io/posts/custom-keyboard/</guid><description>为什么换键盘？ GK61驱动垃圾 只支持windows系统 按键配置程度很低 USB接口松动 不合理的布局 小指负荷较重而大拇指只方便按空格 键位利用率不高 布局 完全对称的40% 分体键盘
 待定
 相较于60%布局的优点：
-手指负载更均衡，提高大拇指利用率，减轻小指的负担 用按键数量替换按键位置，这点见仁见智 更便携，占用空间更小，节约轴体成本等附送的优点 相较于其他40%布局的优点：
-空格两侧挤出了两个Fn键位，由两个大拇指直接控制，分别配合另一只手使用其他层按键 没有2U及以上的按键，省去了卫星轴相关的问题和成本 多两到三颗键位更方便使用 存在的缺点（随使用更新）：
-配件 PCB：QMK Type-C 热插拔 兼容5脚轴 不支持卫星轴，有点遗憾，不过我这配列不需要它，不然就得强制绑定一块定位板了，组不了无钢 轴体：佳达隆黄轴Pro 线性 厂润 1.2元 45颗 性价比 键帽：SA 垃圾包 无刻 PBT 从上到下依次为 R2 R3 R4 R3 配列特殊能凑齐按键就不错了，就别追求一套或按键对应了 壳：砖石微型积木 6mm规格 随机5色以上 大约2500到3000颗能拼出外壳 不喜欢空腔音 也是最不值得花钱的配件 线：尼龙螺旋type-C 尼龙质感好 螺旋线好整理 用不上定位板和卫星轴
+手指负载更均衡，提高大拇指利用率，减轻小指的负担 用按键数量替换按键位置，这点见仁见智 更便携，占用空间更小，节约轴体成本等附送的优点 存在的缺点（随使用更新）：
 按键分配 得益于QMK固件，能最大程度的定义适合自己的键位
-空格两侧为fn
-第一层 分裂空格左为空格，右为ESC
-SDF以及JKL为基准的3x3矩阵模拟数字键盘
-CapsLock 为L-ctrl
-原ctrl位为使用频率最低的符号</description><content>&lt;h2 id="为什么换键盘">为什么换键盘？&lt;/h2>
+成对符号保持对称或者放一起，尽量保持常规键位布局，根据功能划分层级</description><content>&lt;h2 id="为什么换键盘">为什么换键盘？&lt;/h2>
 &lt;ol>
 &lt;li>GK61驱动垃圾 只支持windows系统 按键配置程度很低 USB接口松动&lt;/li>
 &lt;li>不合理的布局 小指负荷较重而大拇指只方便按空格 键位利用率不高&lt;/li>
 &lt;/ol>
 &lt;h2 id="布局">布局&lt;/h2>
-&lt;p>完全对称的40% 45键布局&lt;/p>
+&lt;p>完全对称的40% 分体键盘&lt;/p>
 &lt;p>&lt;a href="">待定&lt;/a>&lt;/p>
 &lt;p>相较于60%布局的优点：&lt;/p>
 &lt;ul>
@@ -68,33 +69,10 @@ CapsLock 为L-ctrl
 &lt;li>用按键数量替换按键位置，这点见仁见智&lt;/li>
 &lt;li>更便携，占用空间更小，节约轴体成本等附送的优点&lt;/li>
 &lt;/ul>
-&lt;p>相较于其他40%布局的优点：&lt;/p>
-&lt;ul>
-&lt;li>空格两侧挤出了两个Fn键位，由两个大拇指直接控制，分别配合另一只手使用其他层按键&lt;/li>
-&lt;li>没有2U及以上的按键，省去了卫星轴相关的问题和成本&lt;/li>
-&lt;li>多两到三颗键位更方便使用&lt;/li>
-&lt;/ul>
 &lt;p>存在的缺点（随使用更新）：&lt;/p>
-&lt;h2 id="配件">配件&lt;/h2>
-&lt;ol>
-&lt;li>PCB：QMK Type-C 热插拔 兼容5脚轴 不支持卫星轴，有点遗憾，不过我这配列不需要它，不然就得强制绑定一块定位板了，组不了无钢&lt;/li>
-&lt;li>轴体：佳达隆黄轴Pro 线性 厂润 1.2元 45颗 性价比&lt;/li>
-&lt;li>键帽：SA 垃圾包 无刻 PBT 从上到下依次为 R2 R3 R4 R3 配列特殊能凑齐按键就不错了，就别追求一套或按键对应了&lt;/li>
-&lt;li>壳：砖石微型积木 6mm规格 随机5色以上 大约2500到3000颗能拼出外壳 不喜欢空腔音 也是最不值得花钱的配件&lt;/li>
-&lt;li>线：尼龙螺旋type-C 尼龙质感好 螺旋线好整理&lt;/li>
-&lt;/ol>
-&lt;p>用不上定位板和卫星轴&lt;/p>
 &lt;h2 id="按键分配">按键分配&lt;/h2>
 &lt;p>得益于QMK固件，能最大程度的定义适合自己的键位&lt;/p>
-&lt;p>空格两侧为fn&lt;/p>
-&lt;h2 id="第一层">第一层&lt;/h2>
-&lt;p>分裂空格左为空格，右为ESC&lt;/p>
-&lt;p>SDF以及JKL为基准的3x3矩阵模拟数字键盘&lt;/p>
-&lt;p>CapsLock 为L-ctrl&lt;/p>
-&lt;p>原ctrl位为使用频率最低的符号&lt;/p>
-&lt;p>成对括号对称放置&lt;/p>
-&lt;p>其他特殊按键保持不动&lt;/p>
-&lt;h2 id="第二层">第二层&lt;/h2></content></item><item><title>Project_Experience</title><link>https://philopence.github.io/posts/project_experience/</link><pubDate>Wed, 29 Dec 2021 11:47:38 +0800</pubDate><guid>https://philopence.github.io/posts/project_experience/</guid><description/><content/></item><item><title>Arch_ins_conf</title><link>https://philopence.github.io/posts/arch_ins_conf/</link><pubDate>Tue, 28 Dec 2021 11:23:54 +0800</pubDate><guid>https://philopence.github.io/posts/arch_ins_conf/</guid><description>01 Pre_Ins systemctl stop reflector.service iwctl # station wlan0 connect[-hidden] SSID timedatectl set-ntp true # timedatectl status fdisk -l fdisk /dev/DISK mkfs.fat -F32 /dev/EFI mkfs.ext4 /dev/ROOT mount /dev/ROOT /mnt mkdir /mnt/boot mount /dev/EFI /mnt/boot 02 Ins_base_pkgs ## https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch vim /etc/pacman.d/mirrorlist pacstrap /mnt base base-devel linux linux-firmware fish neovim networkmanager grub efibootmgr intel-ucode 03 Conf the system genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab arch-chroot /mnt ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime hwclock --systohc nvim /etc/locale.</description><content>&lt;h2 id="01-pre_ins">01 Pre_Ins&lt;/h2>
+&lt;p>成对符号保持对称或者放一起，尽量保持常规键位布局，根据功能划分层级&lt;/p></content></item><item><title>Project_Experience</title><link>https://philopence.github.io/posts/project_experience/</link><pubDate>Wed, 29 Dec 2021 11:47:38 +0800</pubDate><guid>https://philopence.github.io/posts/project_experience/</guid><description/><content/></item><item><title>Arch_ins_conf</title><link>https://philopence.github.io/posts/arch_ins_conf/</link><pubDate>Tue, 28 Dec 2021 11:23:54 +0800</pubDate><guid>https://philopence.github.io/posts/arch_ins_conf/</guid><description>01 Pre_Ins systemctl stop reflector.service iwctl # station wlan0 connect[-hidden] SSID timedatectl set-ntp true # timedatectl status fdisk -l fdisk /dev/DISK mkfs.fat -F32 /dev/EFI mkfs.ext4 /dev/ROOT mount /dev/ROOT /mnt mkdir /mnt/boot mount /dev/EFI /mnt/boot 02 Ins_base_pkgs ## https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch vim /etc/pacman.d/mirrorlist pacstrap /mnt base base-devel linux linux-firmware fish neovim networkmanager grub efibootmgr intel-ucode 03 Conf the system genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab arch-chroot /mnt ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime hwclock --systohc nvim /etc/locale.</description><content>&lt;h2 id="01-pre_ins">01 Pre_Ins&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">systemctl stop reflector.service
 iwctl &lt;span style="color:#75715e"># station wlan0 connect[-hidden] SSID&lt;/span>
 timedatectl set-ntp true &lt;span style="color:#75715e"># timedatectl status&lt;/span>
@@ -148,8 +126,8 @@ fcitx5-im fcitx5-rime fcitx5-material-theme
 lxappearance qt5ct kvantum
 capitaine-cursors papirus-icon-theme material-gtk-theme kvantum-material-theme
 bspwm sxhkd kitty rofi picom dunst
-git openssh npm feh scrot lazygit ripgrep ranger tmux hugo interception-caps2esc udiskie unarchiver
-chromium code v2raya&lt;span style="color:#f92672">(&lt;/span>v2ray&lt;span style="color:#f92672">)&lt;/span> pomotroid-bin
+git openssh npm feh scrot lazygit fd ripgrep ranger highlight tmux hugo interception-caps2esc udiskie unarchiver flameshot
+chromium code v2raya&lt;span style="color:#f92672">(&lt;/span>v2ray&lt;span style="color:#f92672">)&lt;/span> pomotroid-bin exa
 &lt;span style="color:#75715e">## TODO 用 dotfiles 替代&lt;/span>
 ~/.xinitrc &lt;span style="color:#75715e"># exec bspwm&lt;/span>
 mkdir ~/.config/&lt;span style="color:#f92672">{&lt;/span>bspwm,sxhkd&lt;span style="color:#f92672">}&lt;/span>

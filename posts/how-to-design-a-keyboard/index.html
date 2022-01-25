@@ -67,15 +67,20 @@ Happy Hacking
 <blockquote>
 <p>有一些比较微妙的事，它看起来非常难，但你就是觉得自己似乎能行，便会产生强烈的欲望去实现它。</p>
 </blockquote>
-<h2 id=我想做一把什么样的键盘>我想做一把什么样的键盘<a href=#我想做一把什么样的键盘 class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<h2 id=预想>预想<a href=#预想 class=hanchor arialabel=Anchor>&#8983;</a> </h2>
 <ol>
-<li>配列：3x6+6</li>
-<li>旋钮 OLED</li>
-<li>热插拔轴座</li>
+<li>配列：3x6+6 仿corne布局</li>
+<li>旋转编码器 OLED</li>
 <li>轴灯+底灯</li>
+<li>热插拔轴座</li>
 <li>亚克力堆叠的GasKet结构</li>
-<li>QMK + VIA</li>
+<li>QMK固件</li>
 </ol>
+<h2 id=准备>准备<a href=#准备 class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<h3 id=硬件>硬件<a href=#硬件 class=hanchor arialabel=Anchor>&#8983;</a> </h3>
+<p>焊接套装，键盘配件，烧录工具</p>
+<h3 id=软件>软件<a href=#软件 class=hanchor arialabel=Anchor>&#8983;</a> </h3>
+<p>kicad，inkscape，freecad</p>
 <h2 id=基本流程>基本流程<a href=#基本流程 class=hanchor arialabel=Anchor>&#8983;</a> </h2>
 <ol>
 <li>创造配列</li>
@@ -90,7 +95,6 @@ Happy Hacking
 矩阵原理：https://kbfirmware.com/
 开源固件：https://qmk.fm/
 构建模型：http://builder.swillkb.com/</p>
-<p>软件：Freecad，kicad</p>
 <h2 id=qmk>QMK<a href=#qmk class=hanchor arialabel=Anchor>&#8983;</a> </h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo pacman --needed --noconfirm -Sy git python-pip libffi
 
@@ -106,7 +110,9 @@ git remote add upstream <span style=color:#e6db74>&#34;https://github.com/qmk/qm
 sudo cp /home/arch/qmk_firmware/util/udev/50-qmk.rules /etc/udev/rules.d/
 
 qmk setup <span style=color:#75715e>## for checked</span>
-</code></pre></div><h2 id=log>Log<a href=#log class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+</code></pre></div><h2 id=其他>其他<a href=#其他 class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<p>客制化键盘线</p>
+<h2 id=log>Log<a href=#log class=hanchor arialabel=Anchor>&#8983;</a> </h2>
 <p>2020-01-05: 产生了做这件事的想法，并从触手可及的地方开始实现。简单学习了kicad和freecad的用法
 2020-01-06: 受限于当前设备性能，优先完成软件部分，建模和设计放后面做。遵循始于所立原则；还是得从硬件部分着手，因为固件模板依赖于原理图，且没有硬件无法调试；键盘设计主题为JoStar-Pad，拥有旋钮，热插拔，RGB，OLED等全部功能的pad键盘，旨在练习与熟悉相关设计与编码，小尺寸节约成本。
 2020-01-07: 完成了PCB原理图的绘制工作，考虑到成本和焊接问题，可能会将MCU换成开发板做成热插拔的形式，进一步修改原理图。接下来需要学会修改定位板和底板，做成三明治结构
