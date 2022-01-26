@@ -63,7 +63,7 @@ Happy Hacking
 #<a href=https://philopence.github.io/tags/></a>&nbsp;
 </span>
 <div class=post-content><div>
-<h2 id=01-pre_ins>01 Pre_Ins<a href=#01-pre_ins class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<h2 id=01-pre-ins>01 Pre Ins<a href=#01-pre-ins class=hanchor arialabel=Anchor>&#8983;</a> </h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>systemctl stop reflector.service
 
 iwctl <span style=color:#75715e># station wlan0 connect[-hidden] SSID</span>
@@ -79,7 +79,7 @@ mkfs.ext4 /dev/ROOT
 mount /dev/ROOT /mnt
 mkdir /mnt/boot
 mount /dev/EFI /mnt/boot
-</code></pre></div><h2 id=02-ins_base_pkgs>02 Ins_base_pkgs<a href=#02-ins_base_pkgs class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+</code></pre></div><h2 id=02-ins-base-pkgs>02 Ins base pkgs<a href=#02-ins-base-pkgs class=hanchor arialabel=Anchor>&#8983;</a> </h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#75715e>## https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch</span>
 vim /etc/pacman.d/mirrorlist
 
@@ -119,9 +119,8 @@ reboot
 nvim /etc/pacman.conf <span style=color:#75715e># enable Colors and multilib, and archlinuxCN mirror</span>
 sudo pacman -Syyu
 sudo pacman -Sy archlinuxcn-keyring
-
-<span style=color:#75715e>## WM and tools</span>
-xorg xorg-xinit xdg-user-dirs xclip lxsession
+</code></pre></div><h2 id=wm-and-tools>WM and tools<a href=#wm-and-tools class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>xorg xorg-xinit xdg-user-dirs xclip lxsession
 xf86-video-intel vulkan-intel
 alsa-utils pulseaudio-alsa bluez bluez-utils pulseaudio-bluetooth
 noto-fonts noto-fonts-cjk noto-fonts-emoji nerd-fonts-jetbrains-mono
@@ -129,11 +128,10 @@ fcitx5-im fcitx5-rime fcitx5-material-theme
 lxappearance qt5ct kvantum
 capitaine-cursors papirus-icon-theme material-gtk-theme kvantum-material-theme
 bspwm sxhkd kitty rofi picom dunst
-git openssh npm feh scrot lazygit fd ripgrep ranger highlight tmux hugo interception-caps2esc udiskie unarchiver flameshot
-chromium code v2raya<span style=color:#f92672>(</span>v2ray<span style=color:#f92672>)</span> pomotroid-bin exa
-
-<span style=color:#75715e>## TODO 用 dotfiles 替代</span>
-~/.xinitrc <span style=color:#75715e># exec bspwm</span>
+git openssh npm feh scrot lazygit fzf fd ripgrep ranger highlight tmux hugo udiskie unarchiver flameshot
+chromium firefox code v2raya<span style=color:#f92672>(</span>v2ray<span style=color:#f92672>)</span> pomotroid-bin exa
+</code></pre></div><h2 id=init-conf>init conf<a href=#init-conf class=hanchor arialabel=Anchor>&#8983;</a> </h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>~/.xinitrc <span style=color:#75715e># exec bspwm</span>
 mkdir ~/.config/<span style=color:#f92672>{</span>bspwm,sxhkd<span style=color:#f92672>}</span>
 cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm
 cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd

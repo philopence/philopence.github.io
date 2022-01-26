@@ -72,7 +72,7 @@ qmk setup &lt;span style="color:#75715e">## for checked&lt;/span>
 &lt;p>存在的缺点（随使用更新）：&lt;/p>
 &lt;h2 id="按键分配">按键分配&lt;/h2>
 &lt;p>得益于QMK固件，能最大程度的定义适合自己的键位&lt;/p>
-&lt;p>成对符号保持对称或者放一起，尽量保持常规键位布局，根据功能划分层级&lt;/p></content></item><item><title>Project_Experience</title><link>https://philopence.github.io/posts/project_experience/</link><pubDate>Wed, 29 Dec 2021 11:47:38 +0800</pubDate><guid>https://philopence.github.io/posts/project_experience/</guid><description/><content/></item><item><title>Arch_ins_conf</title><link>https://philopence.github.io/posts/arch_ins_conf/</link><pubDate>Tue, 28 Dec 2021 11:23:54 +0800</pubDate><guid>https://philopence.github.io/posts/arch_ins_conf/</guid><description>01 Pre_Ins systemctl stop reflector.service iwctl # station wlan0 connect[-hidden] SSID timedatectl set-ntp true # timedatectl status fdisk -l fdisk /dev/DISK mkfs.fat -F32 /dev/EFI mkfs.ext4 /dev/ROOT mount /dev/ROOT /mnt mkdir /mnt/boot mount /dev/EFI /mnt/boot 02 Ins_base_pkgs ## https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch vim /etc/pacman.d/mirrorlist pacstrap /mnt base base-devel linux linux-firmware fish neovim networkmanager grub efibootmgr intel-ucode 03 Conf the system genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab arch-chroot /mnt ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime hwclock --systohc nvim /etc/locale.</description><content>&lt;h2 id="01-pre_ins">01 Pre_Ins&lt;/h2>
+&lt;p>成对符号保持对称或者放一起，尽量保持常规键位布局，根据功能划分层级&lt;/p></content></item><item><title>Project_Experience</title><link>https://philopence.github.io/posts/project_experience/</link><pubDate>Wed, 29 Dec 2021 11:47:38 +0800</pubDate><guid>https://philopence.github.io/posts/project_experience/</guid><description/><content/></item><item><title>Arch_ins_conf</title><link>https://philopence.github.io/posts/arch_ins_conf/</link><pubDate>Tue, 28 Dec 2021 11:23:54 +0800</pubDate><guid>https://philopence.github.io/posts/arch_ins_conf/</guid><description>01 Pre Ins systemctl stop reflector.service iwctl # station wlan0 connect[-hidden] SSID timedatectl set-ntp true # timedatectl status fdisk -l fdisk /dev/DISK mkfs.fat -F32 /dev/EFI mkfs.ext4 /dev/ROOT mount /dev/ROOT /mnt mkdir /mnt/boot mount /dev/EFI /mnt/boot 02 Ins base pkgs ## https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch vim /etc/pacman.d/mirrorlist pacstrap /mnt base base-devel linux linux-firmware fish neovim networkmanager grub efibootmgr intel-ucode 03 Conf the system genfstab -U /mnt &amp;gt;&amp;gt; /mnt/etc/fstab arch-chroot /mnt ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime hwclock --systohc nvim /etc/locale.</description><content>&lt;h2 id="01-pre-ins">01 Pre Ins&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">systemctl stop reflector.service
 iwctl &lt;span style="color:#75715e"># station wlan0 connect[-hidden] SSID&lt;/span>
 timedatectl set-ntp true &lt;span style="color:#75715e"># timedatectl status&lt;/span>
@@ -83,7 +83,7 @@ mkfs.ext4 /dev/ROOT
 mount /dev/ROOT /mnt
 mkdir /mnt/boot
 mount /dev/EFI /mnt/boot
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="02-ins_base_pkgs">02 Ins_base_pkgs&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="02-ins-base-pkgs">02 Ins base pkgs&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#75715e">## https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch&lt;/span>
 vim /etc/pacman.d/mirrorlist
 pacstrap /mnt base base-devel linux linux-firmware fish neovim networkmanager grub efibootmgr intel-ucode
@@ -117,8 +117,8 @@ reboot
 nvim /etc/pacman.conf &lt;span style="color:#75715e"># enable Colors and multilib, and archlinuxCN mirror&lt;/span>
 sudo pacman -Syyu
 sudo pacman -Sy archlinuxcn-keyring
-&lt;span style="color:#75715e">## WM and tools&lt;/span>
-xorg xorg-xinit xdg-user-dirs xclip lxsession
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="wm-and-tools">WM and tools&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">xorg xorg-xinit xdg-user-dirs xclip lxsession
 xf86-video-intel vulkan-intel
 alsa-utils pulseaudio-alsa bluez bluez-utils pulseaudio-bluetooth
 noto-fonts noto-fonts-cjk noto-fonts-emoji nerd-fonts-jetbrains-mono
@@ -126,10 +126,10 @@ fcitx5-im fcitx5-rime fcitx5-material-theme
 lxappearance qt5ct kvantum
 capitaine-cursors papirus-icon-theme material-gtk-theme kvantum-material-theme
 bspwm sxhkd kitty rofi picom dunst
-git openssh npm feh scrot lazygit fd ripgrep ranger highlight tmux hugo interception-caps2esc udiskie unarchiver flameshot
-chromium code v2raya&lt;span style="color:#f92672">(&lt;/span>v2ray&lt;span style="color:#f92672">)&lt;/span> pomotroid-bin exa
-&lt;span style="color:#75715e">## TODO 用 dotfiles 替代&lt;/span>
-~/.xinitrc &lt;span style="color:#75715e"># exec bspwm&lt;/span>
+git openssh npm feh scrot lazygit fzf fd ripgrep ranger highlight tmux hugo udiskie unarchiver flameshot
+chromium firefox code v2raya&lt;span style="color:#f92672">(&lt;/span>v2ray&lt;span style="color:#f92672">)&lt;/span> pomotroid-bin exa
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="init-conf">init conf&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">~/.xinitrc &lt;span style="color:#75715e"># exec bspwm&lt;/span>
 mkdir ~/.config/&lt;span style="color:#f92672">{&lt;/span>bspwm,sxhkd&lt;span style="color:#f92672">}&lt;/span>
 cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm
 cp /usr/share/doc/bspwm/examples/sxhkdrc ~/.config/sxhkd
