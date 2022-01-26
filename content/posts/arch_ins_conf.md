@@ -11,7 +11,7 @@ showFullContent = false
 readingTime = false
 +++
 
-## 01 Pre_Ins
+## 01 Pre Ins
 
 ```shell
 systemctl stop reflector.service
@@ -31,7 +31,7 @@ mkdir /mnt/boot
 mount /dev/EFI /mnt/boot
 ```
 
-## 02 Ins_base_pkgs
+## 02 Ins base pkgs
 
 ```shell
 ## https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch
@@ -85,8 +85,11 @@ nmcli device wifi connect SSID password PASSWORD [hidden yes]
 nvim /etc/pacman.conf # enable Colors and multilib, and archlinuxCN mirror
 sudo pacman -Syyu
 sudo pacman -Sy archlinuxcn-keyring
+```
 
 ## WM and tools
+
+```shell
 xorg xorg-xinit xdg-user-dirs xclip lxsession
 xf86-video-intel vulkan-intel
 alsa-utils pulseaudio-alsa bluez bluez-utils pulseaudio-bluetooth
@@ -95,10 +98,13 @@ fcitx5-im fcitx5-rime fcitx5-material-theme
 lxappearance qt5ct kvantum
 capitaine-cursors papirus-icon-theme material-gtk-theme kvantum-material-theme
 bspwm sxhkd kitty rofi picom dunst
-git openssh npm feh scrot lazygit fd ripgrep ranger highlight tmux hugo interception-caps2esc udiskie unarchiver flameshot
-chromium code v2raya(v2ray) pomotroid-bin exa
+git openssh npm feh scrot lazygit fzf fd ripgrep ranger highlight tmux hugo udiskie unarchiver flameshot
+chromium firefox code v2raya(v2ray) pomotroid-bin exa
+```
 
-## TODO 用 dotfiles 替代
+## init conf
+
+```shell
 ~/.xinitrc # exec bspwm
 mkdir ~/.config/{bspwm,sxhkd}
 cp /usr/share/doc/bspwm/examples/bspwmrc ~/.config/bspwm
